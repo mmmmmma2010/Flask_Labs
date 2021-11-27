@@ -1,0 +1,11 @@
+{% extends "base.html"%} 
+{%block content %}
+
+{% for todo in todos%}
+<div>
+    <h2>{{todo.title}}</h2>
+    <p> {{todo.description}}</p>        
+</div>
+{% endfor%}
+
+{% endblock %}
