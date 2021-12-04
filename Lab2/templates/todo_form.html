@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block body %}
+<style>form{
+    top: 200px;}</style>
+
+<form class="d-flex justify-content-center align-items-center mb-4" method="post" action="{%if todo%}{{url_for('edit_todo',id=todo.id)}}{%else%}{{url_for('create_todo')}}{% endif %}">
+   
+    <input type="text" name="title" value="Todo" hidden >
+    <div class="form-outline flex-fill">
+        {% if todo %}
+      <input type="text" id="form3" class="form-control form-control-lg"  name="description" value="{{todo.description}}"/>
+      {% else %}
+      <input type="text" id="form3" class="form-control form-control-lg"  name="description" />
+      
+      {% endif %}
+
+      <label class="form-label" for="form3">What do you need to do today?</label>
+    </div>
+    {% if todo %}
+    <input class="btn btn-primary btn-lg ms-2" type="submit" name="update" value="update">
+    {% else %}
+    <input  class="btn btn-primary btn-lg ms-2" type="submit" name="create" value="create">
+    {% endif %}
+  </form>
+{% endblock %}
+
+
